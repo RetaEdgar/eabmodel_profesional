@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EABMODEL - Soluciones Digitales</title>
+  <style>
+    /* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #FFFFFF;
+  color: #222222;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #111111;
+  color: #F2B811;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+  font-family: 'Segoe UI Black', 'Segoe UI', sans-serif;
+}
+
+header p {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+section {
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  background-color: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #F2B811;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #F2B811;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+h3 {
+  color: #333333;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+p {
+  color: #555555;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-dark {
+  background-color: #f0f0f0;
+  box-shadow: none;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.member {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1.5rem 1rem 2rem 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  max-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.member img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #F2B811;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(242,184,17,0.3);
+}
+
+.member h3 {
+  color: #111111;
+  margin-bottom: 0.3rem;
+}
+
+.member p {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.4;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #444444;
+  font-size: 1.05rem;
+}
+
+ul li {
+  margin-bottom: 0.7rem;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 2rem 2rem 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #222222;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #F2B811;
+  outline: none;
+  box-shadow: 0 0 6px #F2B811;
+}
+
+button {
+  background-color: #F2B811;
+  color: #222222;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #d19c0a;
+  box-shadow: 0 4px 15px rgba(209,156,10,0.5);
+}
+
+#form-response {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+footer {
+  background-color: #111111;
+  color: #eeeeee;
+  text-align: center;
+  padding: 1.8rem 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .team {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .member {
+    max-width: 90vw;
+  }
+
+  form {
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>EABMODEL</h1>
+    <p>“Transformamos ideas en soluciones digitales que impulsan negocios.”</p>
+  </header>
+
+  <main>
+    <!-- Sección Inicio -->
+    <section id="inicio">
+      <h2>Bienvenidos a EABMODEL</h2>
+      <p>Soluciones digitales innovadoras y de alta calidad para impulsar la transformación tecnológica.</p>
+    </section>
+
+    <!-- Sección Nosotros (Información de la empresa) -->
+    <section id="nosotros" class="section-dark">
+      <h2>Nosotros</h2>
+      <h3>Misión</h3>
+      <p>Desarrollar soluciones digitales innovadoras y de alta calidad mediante aplicaciones web y móviles multiplataforma, que impulsen la transformación tecnológica de empresas y emprendedores, optimizando sus modelos de negocio con herramientas efectivas y escalables.</p>
+
+      <h3>Visión</h3>
+      <p>Ser reconocido como un laboratorio líder en ingeniería de aplicaciones empresariales y modelos de negocio digitales en América Latina, destacando por la excelencia técnica, la innovación constante y el compromiso con el éxito de los clientes.</p>
+
+      <h3>Objetivo</h3>
+      <p>Consolidar, en un plazo de tres años, una oferta sólida de soluciones digitales innovadoras y multiplataforma para empresas y emprendedores en América Latina, alcanzando altos niveles de satisfacción del cliente y posicionamiento competitivo, mediante el desarrollo continuo de herramientas tecnológicas escalables que optimicen modelos de negocio y fortalezcan la transformación digital.</p>
+
+      <h3>Descripción General</h3>
+      <p>EABMODEL es un laboratorio de ingeniería tecnológica especializado en el diseño, desarrollo e implementación de aplicaciones web y móviles multiplataforma. Su propuesta se centra en la fusión de programación avanzada con el análisis y optimización de procesos empresariales, ofreciendo soluciones integrales a organizaciones que buscan innovar, escalar y digitalizar sus operaciones.</p>
+      <p>Cuenta con un equipo multidisciplinario conformado por desarrolladores, diseñadores UX/UI y consultores en estrategia digital, enfocados en transformar ideas en productos funcionales, sostenibles y orientados al mercado.</p>
+
+      <h3>Antecedentes</h3>
+      <p>EABMODEL surge como una respuesta a la creciente demanda de soluciones digitales personalizadas, eficientes y adaptables en un entorno donde la tecnología evoluciona rápidamente y los usuarios exigen experiencias cada vez más intuitivas y funcionales.</p>
+      <p>Fundada por profesionales con amplia experiencia en desarrollo de software e innovación tecnológica, la empresa nace con el propósito de brindar algo más que servicios de programación: su enfoque se centra en crear soluciones integrales que resuelvan problemas reales y potencien el crecimiento sostenible de sus clientes mediante herramientas digitales inteligentes.</p>
+      <p>Desde sus inicios, EABMODEL ha trabajado con startups, pymes y corporativos consolidados, ayudándoles a digitalizar sus operaciones, optimizar recursos y conectar mejor con sus usuarios.</p>
+
+      <h3>Proceso de Desarrollo</h3>
+      <p>El proceso de desarrollo en EABMODEL se estructura en fases estratégicas: descubrimiento, diseño, prototipado, desarrollo, pruebas, implementación y mejora continua.</p>
+      <p>Se parte del análisis del modelo de negocio del cliente y sus requerimientos, seguido por el diseño de UX/UI y la validación de prototipos. Posteriormente se desarrolla la solución usando tecnologías como React Native, Node.js o Flutter.</p>
+      <p>Finalmente, se despliega la solución y se brinda mantenimiento, capacitación y mejoras continuas basadas en retroalimentación real.</p>
+    </section>
+
+    <!-- Sección Nuestro Equipo -->
+    <section id="equipo">
+      <h2>Nuestro Equipo</h2>
+      <div class="team">
+        <div class="member">
+          <img src="images/reta_formal.jpg" alt="Integrante 1" />
+          <h3>Edgar Jesus Reta Ravelo</h3>
+          <p>Lider, Tester y FrontEnd, responsable del FrontEnd de la aplicacion movil y avances de los integrantes.</p>
+        </div>
+        <div class="member">
+          <img src="images/matias.jpeg" alt="Integrante 2" />
+          <h3>Matias Manuel Rosales Garcia</h3>
+          <p>BackEnd, responsable de la conexion entre la base de datos y el prototipo de IoT.</p>
+        </div>
+        <div class="member">
+          <img src="images/integrante3.jpg" alt="Integrante 3" />
+          <h3>Sanchez Irigoyen Pablo Manuel</h3>
+          <p>FullStack, responsable del diseño de la pagina web y conexion a BackEnd.</p>
+        </div>
+        <div class="member">
+          <img src="images/integrante4.jpg" alt="Integrante 4" />
+          <h3>Edgar Jair Garcia Santillan</h3>
+          <p>FrontEnd y experiencia de usuario, responsable del diseño visual de la pagina web y experiencia del usuario.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="section-dark">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Desarrollo web y móvil multiplataforma</li>
+        <li>Sistemas inteligentes y automatización</li>
+        <li>Consultoría en transformación digital</li>
+        <li>Diseño de arquitectura de software</li>
+      </ul>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form id="contact-form">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="email" name="correo" placeholder="Correo electrónico" required />
+        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <p id="form-response" style="margin-top: 1rem;"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EABMODEL. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nombre = e.target.nombre.value;
+        const correo = e.target.correo.value;
+        const mensaje = e.target.mensaje.value;
+        const response = document.getElementById('form-response');
+
+        if (!nombre || !correo || !mensaje) {
+          response.textContent = 'Por favor, completa todos los campos.';
+          response.style.color = '#F2B811';
+          return;
+        }
+
+        response.textContent = 'Gracias por contactarnos, ' + nombre + '. ¡Te responderemos pronto!';
+        response.style.color = '#F2B811';
+        e.target.reset();
+      });
+    }
+  </script>
+</body>
+
+</html>
